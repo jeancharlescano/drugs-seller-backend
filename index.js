@@ -1,16 +1,20 @@
+import * as dotenv from "dotenv"; 
+dotenv.config();
+
 import express from "express";
-import cors from 'cors';
+import cors from "cors";
 
 import router from "./routes/index.js";
 
 const app = express();
 
 // MiddleWares
-app.use(cors())
-app.use(express.json())
+app.use(cors());
+app.use(express.json());
 
 // Routes
 app.use("/api", router);
 
-app.listen(3000, () => console.log(`Server on port`, 3000));
-    
+app.listen(process.env.API_PORT, () =>
+  console.log(`Server on port`, process.env.API_PORT)
+);

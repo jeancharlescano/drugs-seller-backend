@@ -1,15 +1,18 @@
+import * as dotenv from "dotenv";
+dotenv.config();
 import pkg from "pg";
 const { Pool } = pkg;
 
-export const pool = new Pool ({
-    user: "postgres",
-    host: "localhost",
-    database: "selldrugs",
-    password: "password",
-    port: 5432, 
+console.log(process.env.DB_USERNAME);
+export const pool = new Pool({
+  user: process.env.DB_USERNAME,
+  host: process.env.DB_HOSTNAME,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWD,
+  port: process.env.DB_PORT,
 });
 
-pool.connect
+pool.connect;
 
 // export async function checkUserBdd() {
 //     console.log("toto");
