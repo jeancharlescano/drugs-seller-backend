@@ -3,7 +3,6 @@ dotenv.config();
 import pkg from "pg";
 const { Pool } = pkg;
 
-console.log(process.env.DB_USERNAME);
 export const pool = new Pool({
   user: process.env.DB_USERNAME,
   host: process.env.DB_HOSTNAME,

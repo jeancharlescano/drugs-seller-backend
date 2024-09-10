@@ -6,6 +6,7 @@ pool.connect;
 export const userAuth = async (req, res) => {
   // console.log("🚀 ~ file: auth.controller.js ~ line 8 ~ userAuth ~ req.body", req.body)
   let { pseudo, password } = req.body;
+  console.log("🚀 ~ userAuth ~ pseudo, password :", pseudo, password);
 
   password = sha256(password);
 
@@ -17,10 +18,10 @@ export const userAuth = async (req, res) => {
     )
     .then((response) => {
       const user = {
-        id :response.rows[0].id_members ,
-        pseudo : response.rows[0].pseudo_members ,
-        isAdmin : response.rows[0].isadmin_members ,
-      }
+        id: response.rows[0].id_members,
+        pseudo: response.rows[0].pseudo_members,
+        isAdmin: response.rows[0].isadmin_members,
+      };
       result = user;
     })
     .catch((_error) => {
